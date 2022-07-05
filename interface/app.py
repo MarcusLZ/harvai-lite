@@ -23,12 +23,6 @@ st.set_page_config(
 #load local env variable if not on heroku else load heroku env variable
 is_prod = os.environ.get('IS_HEROKU', None)
 
-if is_prod:
-    API_URL = os.environ['API_URL']
-    API_TOKEN = os.environ['API_TOKEN']
-else:
-    API_URL = config('API_URL')
-    API_TOKEN = config('API_TOKEN')
 
 #headers = {"Authorization": f"Bearer {API_TOKEN}"}
 
