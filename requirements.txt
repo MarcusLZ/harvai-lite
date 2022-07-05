@@ -7,7 +7,6 @@ wheel>=0.29
 # data science
 numpy
 pandas
-plotly
 scikit-learn
 
 # tests/linter
@@ -28,10 +27,7 @@ python-decouple
 
 # utilities
 six>=1.14
-joblib
-memoized-property
 termcolor
-sentencepiece
 
 
 # NLP

@@ -5,9 +5,12 @@ from webbrowser import get
 from harvai.data import preprocessing_user_input
 from harvai.nn_model import Nn_model
 import requests
+import os
+from decouple import config
+
 
 API_URL = "https://api-inference.huggingface.co/models/etalab-ia/camembert-base-squadFR-fquad-piaf"
-headers = {"Authorization": "Bearer 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"}
+headers = {"Authorization": config('HF_TOKEN')}
 
 
 def query(payload):
