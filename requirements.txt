@@ -9,10 +9,6 @@ numpy
 pandas
 plotly
 scikit-learn
-transformers
-torch
-farm-haystack
-faiss-cpu
 
 # tests/linter
 black

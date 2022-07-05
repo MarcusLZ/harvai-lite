@@ -1,19 +1,32 @@
 from contextvars import Context
 from re import A
 from webbrowser import get
-from transformers import pipeline
 
 from harvai.data import preprocessing_user_input
 from harvai.nn_model import Nn_model
+import requests
 
+API_URL = "https://api-inference.huggingface.co/models/etalab-ia/camembert-base-squadFR-fquad-piaf"
+headers = {"Authorization": "Bearer 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"}
+
+
+def query(payload):
+	response = requests.post(API_URL, headers=headers, json=payload)
+	return response.json()
 
 def get_answer(question,retriever,article_number,digits=False):
     """ Instanciate and use the transformer model"""
 
     context, parsed_context , article_reference = get_context(question, retriever,article_number,digits)
-    model = pipeline('question-answering', model='etalab-ia/camembert-base-squadFR-fquad-piaf', tokenizer='etalab-ia/camembert-base-squadFR-fquad-piaf')
+    output = query({
+	"inputs": {
+		"question": question,
+		"context": context
+	},
+    })
 
-    return model({ 'question': question, 'context': context }) , parsed_context , context , article_reference
+    return output, parsed_context , context , article_reference
+
 
 def get_context(question, retriever,article_number,digits=False):
     """calling the research model/function"""

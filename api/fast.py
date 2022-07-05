@@ -21,9 +21,9 @@ def index():
     return {"Greeting": "Welcome to harvai API"}
 
 @app.get("/answer")
-def answer(question, retriever, article_number):
+def answer(question):
     # from the user input (question) and articles, get the answer from hugging face
 
-    answer, parsed_context, context, article_reference = get_answer(question, retriever, int(article_number))
+    answer, parsed_context, context, article_reference = get_answer(question, "KNN", 4)
 
     return {"question": question, "answer": answer, "parsed_context" : parsed_context, "context" : context , "article_reference" : article_reference}
