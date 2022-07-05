@@ -1,0 +1,11 @@
+*.egg-info
+.coverage
+.ipynb_checkpoints
+.DS_Store
+**/__pycache__/
+.env
+.vscode
+*.db
+*.pt
+faiss.index
+faiss.json
