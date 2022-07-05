@@ -1,1 +1,1 @@
-web: uvicorn api.fast:app --port ${PORT:-5000}
+web: pip install . -U && uvicorn api.fast:app --host=0.0.0.0 --port=${PORT:-5000}
