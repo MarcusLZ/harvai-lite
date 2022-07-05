@@ -1,1 +1,1 @@
-web: pip install . -U && uvicorn api.fast:app --reload
+web: pip install . -U && uvicorn api.fast:app --port $PORT --reload
