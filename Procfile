@@ -1,1 +1,1 @@
-worker: pip install . -U && uvicorn api.fast:app --port $PORT --reload
+web: uvicorn app.main:app --host=0.0.0.0 --port=${PORT:-5000}
